@@ -15,7 +15,7 @@ First add the <strong>h-slide.css</strong> style.
 
 Then add the slider
 ```javascript
-<hslider labelId='slider-text'></hslider>
+<hslider id="s1" labelId='slider-text'></hslider>
 <div id="slider-text">Drag the knob.</div>
 ```
 
@@ -30,5 +30,16 @@ Then finally wire the slider by calling <strong>hslider.initializeSliders()</str
 ```javascript
 <script>
     hslider.initializeSliders();
+</script>
+```
+
+Use <strong>slider.knob.onRangeChanged</strong> to add a callback for when the slider position has changed.
+
+```javascript
+<script>
+    const slider = hslider.getSliderById("s1"); // Get the slider
+    slider.knob.onRangeChanged = function(s) {  // Attach callback
+        console.log("slider:foo", s.knob.range)
+    }
 </script>
 ```
