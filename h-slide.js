@@ -1,7 +1,7 @@
 /**
  * Created by: Harold Campbell
  * twitter: @haroldcampbell
- * version 0.0.2
+ * version 0.0.3
  */
 hslider = {
     __createSlider(knobElm, containerElm) {
