@@ -1,0 +1,22 @@
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Horizontal Slider Demo</title>
+    <link href="h-slide.css" media="all" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="slider-box" class="slider-container" onmouseout="sliderDisable(event, this, 'slider-text')" onmousemove="updateKnobPosition(event, this, 'slider-text')">
+        <div id="knob" class="slider-knob" onmousedown="knobEnable(event, this)" onmouseup="knobDisable(event, this)"></div>
+    </div>
+    <div id="slider-text">
+        Drag the know.
+    </div>
+    <p>
+        Moving outside of the slider's container prevents further updates.
+    </p>
+    <script src="./h-slide.js" type="text/javascript"></script>
+</body>
+
+</html>
