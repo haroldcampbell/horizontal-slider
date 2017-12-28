@@ -1,6 +1,6 @@
 {
   "name": "horizontal-slider",
-  "version": "0.0.5",
+  "version": "0.0.5-1",
   "description": "A themable horizontal slider.",
   "main": "horizontal-slider.js",
   "scripts": {
