@@ -3,32 +3,51 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Horizontal Slider Demo</title>
-    <link href="h-slide.css" media="all" rel="stylesheet" />
+    <link href="horizontal-slider.css" media="all" rel="stylesheet" />
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        p.space {
+            margin-bottom: 40px;
+        }
+
+        #slider-text, #slider-text2 {
+            color: #e0e0d0;
+            margin:10px 0 0 5px;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="contents">
+        <hslider id="s1" labelId="slider-text"></hslider>
+        <div id="slider-text">Drag the knob.</div>
+        <p class="space"></p>
 
-    <hslider id="s1" labelId='slider-text'></hslider>
-    <div id="slider-text">Drag the knob.</div>
-    <p>
-        Moving outside of the slider's container prevents further updates.
-    </p>
+        <hslider id="s2" labelId="slider-text" class="purple"></hslider>
+        <p class="space"></p>
 
-    <hslider id="s2" labelId='slider-text'></hslider>
-    <p>
-        Check out the JavaScript Console.
-    </p>
+        <hslider id="s3" labelId="slider-text2" class="thin"></hslider>
+        <div id="slider-text2">Drag the knob.</div>
+        <p class="space"></p>
 
-    <script src="./h-slide.js" type="text/javascript"></script>
+        <p>
+            Check out the JavaScript Console.
+        </p>
+    </div>
+
+    <script src="./horizontal-slider.js" type="text/javascript"></script>
     <script>
         hslider.initializeSliders();
         let slider = hslider.getSliderById("s1"); // Get slider 1
-        slider.knob.onRangeChanged = function(s) {
+        slider.knob.onRangeChanged = function (s) {
             console.log("slider:s1", s.knob.range)
         }
 
-        slider = hslider.getSliderById("s2");   // Get slider 2
-        slider.knob.onRangeChanged = function(s) {
+        slider = hslider.getSliderById("s2"); // Get slider 2
+        slider.knob.onRangeChanged = function (s) {
             console.log("slider:s2", s.knob.range)
         }
     </script>

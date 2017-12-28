@@ -1,0 +1,52 @@
+.horizontal-slider-container {
+    left: default;
+    position: relative;
+
+    /* __ These attributes can be configured __*/
+    width: 200px;
+    height: 20px;
+    border-radius: 12px;
+}
+
+.horizontal-slider-knob {
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: relative;
+
+    /* __ These attributes can be configured __*/
+    width: 20px;
+    border-radius: 10px;
+}
+
+/* -- THEMES -- */
+
+/* Default Grey theme */
+hslider .horizontal-slider-container {
+    border: solid 2px #ccc;
+}
+
+hslider .horizontal-slider-knob {
+    background-color: #777;
+}
+
+/* Purple theme */
+.purple .horizontal-slider-container {
+    border: solid 2px #b38ad2;
+}
+.purple .horizontal-slider-knob {
+    background-color: #68368d;
+}
+
+/* Thin theme */
+.thin .horizontal-slider-container {
+    border:none;
+    border-bottom: solid 2px #fad8d8;
+    height: 10px;
+    border-radius: 0px;
+}
+.thin .horizontal-slider-knob {
+    background-color: #F08080;
+    margin-top:6px;
+}

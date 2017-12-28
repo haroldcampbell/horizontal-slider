@@ -1,14 +1,14 @@
 /**
  * Created by: Harold Campbell
  * twitter: @haroldcampbell
- * version 0.0.4
+ * version 0.0.5
  */
 
 hslider = {
     __activeSlider: null,
 };
 
-hslider.__createSlider = function(knobElm, containerElm, labelElm) {
+hslider.__createSlider = function (knobElm, containerElm, labelElm) {
     return {
         isEnabled: false,
         isInitialize: false,
@@ -79,15 +79,15 @@ hslider.__createSlider = function(knobElm, containerElm, labelElm) {
     };
 }
 
-hslider.__hasActiveSlider = function() {
+hslider.__hasActiveSlider = function () {
     return (this.__activeSlider !== undefined && this.__activeSlider !== null);
 }
 
-hslider.__isActive = function(){
+hslider.__isActive = function () {
     return this.__activeSlider.isInitialize && hslider.__activeSlider.isEnabled
 }
 
-hslider.__initSlider = function(event, knobElm) {
+hslider.__initSlider = function (event, knobElm) {
     let containerElm = knobElm.parentNode;
     let slider = containerElm.slider;
 
@@ -99,7 +99,7 @@ hslider.__initSlider = function(event, knobElm) {
     slider.isInitialize = true;
 }
 
-hslider.__setSliderStatus = function(event, knobElm, isEnabled) {
+hslider.__setSliderStatus = function (event, knobElm, isEnabled) {
     document.onmouseup = null;
     document.onmousemove = null;
 
@@ -118,27 +118,27 @@ hslider.__setSliderStatus = function(event, knobElm, isEnabled) {
     }
 }
 
-hslider.__textToHTMLNode = function(text) {
+hslider.__textToHTMLNode = function (text) {
     let temp = document.createElement('div');
     temp.innerHTML = text;
 
     return temp.firstChild;
 }
 
-hslider.knobEnable = function(event, knobElm) {
+hslider.knobEnable = function (event, knobElm) {
     this.__setSliderStatus(event, knobElm, true)
 }
 
-hslider.knobDisable = function(event, knobElm) {
+hslider.knobDisable = function (event, knobElm) {
     this.__setSliderStatus(event, knobElm, false)
 }
 
-hslider.initializeSliders = function() {
+hslider.initializeSliders = function () {
     let sliders = document.getElementsByTagName("hslider");
 
     for (let index = 0; index < sliders.length; index++) {
         let elm = sliders[index];
-        let knobElm = this.__textToHTMLNode('<div id="knob" class="slider-knob"></div>')
+        let knobElm = this.__textToHTMLNode('<div id="knob" class="horizontal-slider-knob"></div>')
 
         knobElm.onmousedown = function (event) {
             hslider.knobEnable(event, knobElm);
@@ -149,7 +149,7 @@ hslider.initializeSliders = function() {
 
         let labelElm = null;
         let labelId = elm.getAttribute('labelid');
-        let containerElm = this.__textToHTMLNode('<div class="slider-container"></div>');
+        let containerElm = this.__textToHTMLNode('<div class="horizontal-slider-container"></div>');
 
         if (labelId != null) {
             labelElm = document.getElementById(labelId);
@@ -162,13 +162,36 @@ hslider.initializeSliders = function() {
     }
 }
 
-hslider.getSliderById = function(hsliderId) {
+hslider.getSliderById = function (hsliderId) {
     let hsliderElm = document.getElementById(hsliderId);
     if (hsliderElm == null) {
         return null;
     }
 
-    let sliderElm = hsliderElm.querySelectorAll(":scope .slider-container")[0];
+    let sliderElm = hsliderElm.querySelectorAll(":scope .horizontal-slider-container")[0];
 
     return sliderElm.slider;
 }
+
+/**
+ * Exports all attributes and methods.
+ *
+ * @method exportAll
+ * @param {Object} _ex - the exports module that we will add the attributes
+ * and methods to
+ */
+function exportAll(_ex) {
+    for (var id in hslider) {
+        try {
+            _ex[id] = hslider[id]
+        } catch (err) {
+        }
+    }
+}
+
+/* Check if we are using export modules. */
+try {
+if (exports !== undefined && exports != null) {
+    exportAll(exports)
+}
+} catch(err) {}

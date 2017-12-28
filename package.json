@@ -1,0 +1,24 @@
+{
+  "name": "horizontal-slider",
+  "version": "0.0.5",
+  "description": "A themable horizontal slider.",
+  "main": "horizontal-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haroldcampbell/horizontal-slider.git"
+  },
+  "keywords": [
+    "es6",
+    "slider",
+    "horizontal-slider"
+  ],
+  "author": "Harold Campbell <@haroldcampbell> (https://twitter.com/haroldcampbell)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haroldcampbell/horizontal-slider/issues"
+  },
+  "homepage": "https://github.com/haroldcampbell/horizontal-slider#readme"
+}

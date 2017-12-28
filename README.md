@@ -4,13 +4,13 @@ Simple slider written in ES6. There are no dependencies on external libraries.
 
 # Theming
 
-See the h-slide.css for examples on how to style the slider.
+See the <strong>horizontal-slider.css</strong> for examples and <strong>index.html</strong> for usage.
 
 # Usage
 
-First add the <strong>h-slide.css</strong> style.
+First add the <strong>horizontal-slider.css</strong> style.
 ```javascript
-<link href="h-slide.css" media="all" rel="stylesheet" />
+<link href="horizontal-slider.css" media="all" rel="stylesheet" />
 ```
 
 Then add the slider
@@ -19,10 +19,10 @@ Then add the slider
 <div id="slider-text">Drag the knob.</div>
 ```
 
-Add the <strong>h-slide.js</strong> script
+Add the <strong>horizontal-slider.js</strong> script
 
 ```javascript
-<script src="./h-slide.js" type="text/javascript"></script>
+<script src="./horizontal-slider.js" type="text/javascript"></script>
 ```
 
 Then finally wire the slider by calling <strong>hslider.initializeSliders()</strong>
