@@ -1,6 +1,12 @@
 # horizontal-slider
 
-Simple slider written in ES6. There are no dependencies on external libraries.
+Horizontal slider is a simple, themable slider written in ES6.
+
+Slider examples:
+
+<img src="./0.0.5.png" width="400">
+
+Cool fact: there are no dependencies on external libraries.
 
 # Theming
 
