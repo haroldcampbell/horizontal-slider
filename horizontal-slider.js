@@ -1,14 +1,14 @@
 /**
  * Created by: Harold Campbell
  * twitter: @haroldcampbell
- * version 0.0.5
+ * version 0.0.6
  */
 
 hslider = {
     __activeSlider: null,
 };
 
-hslider.__createSlider = function (knobElm, containerElm, labelElm) {
+hslider.__createSlider = function (containerElm, knobElm, labelElm) {
     return {
         isEnabled: false,
         isInitialize: false,
@@ -33,12 +33,12 @@ hslider.__createSlider = function (knobElm, containerElm, labelElm) {
         },
 
         updateKnobPosition(documentEvent) {
-            let rect = this.container.elm.getBoundingClientRect()
+            let rect = this.container.elm.getBoundingClientRect();
             let left = documentEvent.clientX - rect.left;
 
-            this.knob.position.x = left - this.knob.startOffset;
+            this.knob.position.x = left
 
-            if (left < this.knob.startOffset) {
+            if (left < 0){
                 this.knob.position.x = 0;
             } else if (this.knob.position.x + this.knob.width > this.container.width) {
                 this.knob.position.x = this.container.sliderWidth;
@@ -137,7 +137,7 @@ hslider.initializeSliders = function () {
     let sliders = document.getElementsByTagName("hslider");
 
     for (let index = 0; index < sliders.length; index++) {
-        let elm = sliders[index];
+        let rootElm = sliders[index];
         let knobElm = this.__textToHTMLNode('<div id="knob" class="horizontal-slider-knob"></div>')
 
         knobElm.onmousedown = function (event) {
@@ -148,7 +148,7 @@ hslider.initializeSliders = function () {
         }
 
         let labelElm = null;
-        let labelId = elm.getAttribute('labelid');
+        let labelId = rootElm.getAttribute('labelid');
         let containerElm = this.__textToHTMLNode('<div class="horizontal-slider-container"></div>');
 
         if (labelId != null) {
@@ -156,9 +156,9 @@ hslider.initializeSliders = function () {
         }
 
         containerElm.appendChild(knobElm);
-        elm.appendChild(containerElm);
+        rootElm.appendChild(containerElm);
 
-        containerElm.slider = this.__createSlider(knobElm, containerElm, labelElm)
+        containerElm.slider = this.__createSlider(containerElm, knobElm, labelElm)
     }
 }
 
